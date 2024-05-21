@@ -1,6 +1,19 @@
 title: podcasts stories
-podcasts:
+podcastrss:
   - id: listenastory-journeytothewest
     title: 西遊記 - 聽故事 Listen! A story!
   - id: listenastory-flowersinthemirror
     title: 鏡花緣 - 聽故事 Listen! A story!
+podcasts:
+  - id: disney-readalong
+    title: Disney Read-Along
+  - id: disney-storyette
+    title: Disney Storyette
+  - id: disney-storyteller
+    title: Disney Storyteller
+  - id: bettywu-investitureofthegods
+    title: 封神榜 - 吳淡如
+  - id: bettywu-journeytothewest
+    title: 吳淡如人生不能沒故事：西遊記
+  - id: bettywu-littleprince
+    title: 吳淡如人生不能沒故事：小王子

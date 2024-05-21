@@ -9,9 +9,16 @@
   <body>
     <h1>{{ site.title }}</h1>
     <ul>
-{% for podcast in site.podcasts %}
+{% for podcast in site.podcastrss %}
       <li>
         <a href="{{ podcast.id | append: '.xml' | prepend: "/" | prepend: site.baseurl | prepend: site.url }}">{{ podcast.title }}</a>
+      </li>
+{% endfor %}
+    </ul>
+    <ul>
+{% for podcast in site.podcasts %}
+      <li>
+        <a href="{{ podcast.id | prepend: "/" | prepend: site.url }}">{{ podcast.title }}</a>
       </li>
 {% endfor %}
     </ul>
