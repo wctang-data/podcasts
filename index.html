@@ -18,7 +18,7 @@
     <ul>
 {% for podcast in site.podcasts %}
       <li>
-        <a href="{{ podcast.id | prepend: "/" | prepend: site.url }}">{{ podcast.title }}</a>
+        <a href="{{ podcast.id | prepend: "/" | prepend: site.url }}">{{ podcast.title }}</a> <a href="{{ podcast.id | prepend: "/" | prepend: site.url }}/feed.xml">🔗</a>
       </li>
 {% endfor %}
     </ul>

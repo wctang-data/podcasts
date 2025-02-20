@@ -5,6 +5,12 @@ podcastrss:
   - id: listenastory-flowersinthemirror
     title: 鏡花緣 - 聽故事 Listen! A story!
 podcasts:
+  - id: storytogether
+    title: 一起說故事
+  - id: storytogether-qiangqiangsadventur
+    title: 一起說故事 - 強強歷險記
+  - id: happythreekingdoms
+    title: 歡樂三國志
   - id: disney-readalong
     title: Disney Read-Along
   - id: disney-storyette
@@ -27,6 +33,10 @@ podcasts:
     title: 吳淡如：莎士比亞
   - id: bettywu-romanceofthethreekingdoms
     title: 吳淡如：三國演義
+  - id: bettywu-jinpingmei
+    title: 吳淡如：金瓶梅
+  - id: bettywu-liaozhai
+    title: 吳淡如：緣定逃不了，新浪漫聊齋
   - id: goodnightmoon-alittleprincess
     title: 晚安．月亮─床邊故事：小公主
   - id: goodnightmoon-animalfarm
@@ -61,6 +71,12 @@ podcasts:
     title: 晚安．月亮 ─ 伊索的故事
   - id: goodnightmoon-achristmascarol
     title: 晚安．月亮 ─ 聖誕頌歌
+  - id: goodnightmoon-frankenstein
+    title: 晚安．月亮 ─ 科學怪人
+  - id: goodnightmoon-thewindonthewillows
+    title: 晚安．月亮 ─ 柳林中的風聲
+  - id: goodnightmoon-amidsummernightsdream
+    title: 晚安．月亮 ─ 仲夏夜之夢
   - id: sandrastoryshow-journeytothewest
     title: 故事糖果屋：西遊記
   - id: vegatsai-arabiannights
