@@ -1,14 +1,14 @@
 title: podcasts stories
 podcastrss:
   - id: listenastory-journeytothewest
-    title: 西遊記 - 聽故事 Listen! A story!
+    title: 咕咕老師：西遊記
   - id: listenastory-flowersinthemirror
-    title: 鏡花緣 - 聽故事 Listen! A story!
+    title: 咕咕老師：鏡花緣
 podcasts:
   - id: storytogether
     title: 一起說故事
   - id: storytogether-qiangqiangsadventur
-    title: 一起說故事 - 強強歷險記
+    title: 一起說故事：強強歷險記
   - id: happythreekingdoms
     title: 歡樂三國志
   - id: disney-readalong
@@ -18,11 +18,11 @@ podcasts:
   - id: disney-storyteller
     title: Disney Storyteller
   - id: bettywu-investitureofthegods
-    title: 封神榜 - 吳淡如
+    title: 吳淡如：封神榜
   - id: bettywu-journeytothewest
-    title: 吳淡如人生不能沒故事：西遊記
+    title: 吳淡如：西遊記
   - id: bettywu-littleprince
-    title: 吳淡如人生不能沒故事：小王子
+    title: 吳淡如：小王子
   - id: bettywu-flowersinthemirror
     title: 吳淡如：鏡花緣
   - id: bettywu-watermargin
@@ -38,45 +38,49 @@ podcasts:
   - id: bettywu-liaozhai
     title: 吳淡如：緣定逃不了，新浪漫聊齋
   - id: goodnightmoon-alittleprincess
-    title: 晚安．月亮─床邊故事：小公主
+    title: 晚安．月亮：小公主
   - id: goodnightmoon-animalfarm
-    title: 晚安．月亮─床邊故事：動物農莊
+    title: 晚安．月亮：動物農莊
   - id: goodnightmoon-aroundtheworldineightydays
-    title: 晚安．月亮─床邊故事：環遊世界八十天
+    title: 晚安．月亮：環遊世界八十天
   - id: goodnightmoon-donquixote
-    title: 晚安．月亮─床邊故事：唐吉訶德
+    title: 晚安．月亮：唐吉訶德
   - id: goodnightmoon-gullivertravels
-    title: 晚安．月亮─床邊故事：格列佛遊記
+    title: 晚安．月亮：格列佛遊記
   - id: goodnightmoon-huckleberryfinn
-    title: 晚安．月亮─床邊故事：頑童歷險記
+    title: 晚安．月亮：頑童歷險記
   - id: goodnightmoon-kingsolomonsmines
-    title: 晚安．月亮─床邊故事：所羅門王的寶藏
+    title: 晚安．月亮：所羅門王的寶藏
   - id: goodnightmoon-littleprince
-    title: 晚安．月亮─床邊故事：小王子
+    title: 晚安．月亮：小王子
   - id: goodnightmoon-nobodysgirl
-    title: 晚安．月亮─床邊故事：孤女努力記
+    title: 晚安．月亮：孤女努力記
   - id: goodnightmoon-olivertwist
-    title: 晚安．月亮─床邊故事：孤雛淚
+    title: 晚安．月亮：孤雛淚
   - id: goodnightmoon-peterpan
-    title: 晚安．月亮─床邊故事：小飛俠
+    title: 晚安．月亮：小飛俠
   - id: goodnightmoon-pinocchio
-    title: 晚安．月亮─床邊故事：木偶奇遇記
+    title: 晚安．月亮：木偶奇遇記
   - id: goodnightmoon-robinhood
-    title: 晚安．月亮─床邊故事：俠盜羅賓漢
+    title: 晚安．月亮：俠盜羅賓漢
   - id: goodnightmoon-tomsawyer
-    title: 晚安．月亮─床邊故事：湯姆歷險記
+    title: 晚安．月亮：湯姆歷險記
   - id: goodnightmoon-legendofthewhitesnake
-    title: 晚安．月亮 ─ 白蛇傳
+    title: 晚安．月亮：白蛇傳
   - id: goodnightmoon-storyofaesop
-    title: 晚安．月亮 ─ 伊索的故事
+    title: 晚安．月亮：伊索的故事
   - id: goodnightmoon-achristmascarol
-    title: 晚安．月亮 ─ 聖誕頌歌
+    title: 晚安．月亮：聖誕頌歌
   - id: goodnightmoon-frankenstein
-    title: 晚安．月亮 ─ 科學怪人
+    title: 晚安．月亮：科學怪人
   - id: goodnightmoon-thewindonthewillows
-    title: 晚安．月亮 ─ 柳林中的風聲
+    title: 晚安．月亮：柳林中的風聲
   - id: goodnightmoon-amidsummernightsdream
-    title: 晚安．月亮 ─ 仲夏夜之夢
+    title: 晚安．月亮：仲夏夜之夢
+  - id: goodnightmoon-anneofgreengables
+    title: 晚安．月亮：清秀佳人
+  - id: goodnightmoon-thephantomoftheopera
+    title: 晚安．月亮：歌劇魅影
   - id: sandrastoryshow-journeytothewest
     title: 故事糖果屋：西遊記
   - id: vegatsai-arabiannights
