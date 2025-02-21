@@ -33,12 +33,16 @@ podcasts:
     title: 吳淡如：莎士比亞
   - id: bettywu-romanceofthethreekingdoms
     title: 吳淡如：三國演義
-  - id: bettywu-theoutlineofchinesehistory
-    title: 吳淡如：中國史綱
   - id: bettywu-jinpingmei
     title: 吳淡如：金瓶梅
   - id: bettywu-liaozhai
     title: 吳淡如：緣定逃不了，新浪漫聊齋
+  - id: bettywu-theoutlineofchinesehistory
+    title: 吳淡如：中國史綱
+  - id: bettywu-fivebarbarians
+    title: 吳淡如：五胡亂華
+  - id: bettywu-shiji
+    title: 吳淡如：史記
   - id: goodnightmoon-alittleprincess
     title: 晚安．月亮：小公主
   - id: goodnightmoon-animalfarm
