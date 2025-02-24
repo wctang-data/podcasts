@@ -7,7 +7,7 @@ podcastrss:
 podcasts:
   - id: storytogether
     title: 一起說故事
-  - id: storytogether-qiangqiangsadventur
+  - id: storytogether-qiangqiangsadventure
     title: 一起說故事：強強歷險記
   - id: happythreekingdoms
     title: 歡樂三國志
