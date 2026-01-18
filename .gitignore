@@ -16,3 +16,5 @@ Gemfile.lock
 .DS_Store
 *.swp
 *~
+token.json
+client_secrets.json
