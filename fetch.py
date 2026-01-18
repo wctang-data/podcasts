@@ -203,7 +203,7 @@ def generate_xml(file_data_list, podcast_title, podcast_desc, output_filename):
         SubElement(item, 'pubDate').text = file['pubDate']
 
     # 排版美化並寫入檔案
-    xml_str = minidom.parseString(tostring(rss)).toprettyxml(indent="  ")
+    xml_str = minidom.parseString(tostring(rss)).toprettyxml(indent="  ", newl="\r")
 
     with open(output_filename, "w", encoding="utf-8") as f:
         f.write(xml_str)

@@ -1,82 +1,1 @@
-<?xml version="1.0" ?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
-  <channel>
-    <title>GK爸爸原創故事繪本</title>
-    <description>GK爸爸原創故事繪本</description>
-    <link>https://example.com</link>
-    <language>zh-tw</language>
-    <itunes:image href="https://example.com/cover.jpg"/>
-    <item>
-      <title>20250114_《QQ俠》EP1-6</title>
-      <guid isPermaLink="false">11uUipD-uGFLDqQ_7IFFpH-GRl42Qa80G</guid>
-      <description>20250114_《QQ俠》EP1-6.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=11uUipD-uGFLDqQ_7IFFpH-GRl42Qa80G" length="69084045" type="audio/mpeg"/>
-      <itunes:duration>01:11:21</itunes:duration>
-      <pubDate>Tue, 14 Jan 2025 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20220513_原創故事《魷魚遊戲王國》完整版</title>
-      <guid isPermaLink="false">1y4eGGJGEyAqyG8JXe4vFPYrMtgzP8vBH</guid>
-      <description>20220513_原創故事《魷魚遊戲王國》完整版.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1y4eGGJGEyAqyG8JXe4vFPYrMtgzP8vBH" length="77091629" type="audio/mpeg"/>
-      <itunes:duration>01:19:51</itunes:duration>
-      <pubDate>Fri, 13 May 2022 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20250116_《QQ俠》EP7 轟轟轟</title>
-      <guid isPermaLink="false">1gvJL5ln2JxVg9HFZyidu9etyushwkF5Z</guid>
-      <description>20250116_《QQ俠》EP7 轟轟轟.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1gvJL5ln2JxVg9HFZyidu9etyushwkF5Z" length="5914531" type="audio/mpeg"/>
-      <itunes:duration>06:06</itunes:duration>
-      <pubDate>Thu, 16 Jan 2025 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20250119_《QQ俠》EP8 迷你太空船</title>
-      <guid isPermaLink="false">1T40Jego07NHC9ldaGkywP3GSZ39vxch7</guid>
-      <description>20250119_《QQ俠》EP8 迷你太空船.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1T40Jego07NHC9ldaGkywP3GSZ39vxch7" length="13681744" type="audio/mpeg"/>
-      <itunes:duration>13:51</itunes:duration>
-      <pubDate>Sun, 19 Jan 2025 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20250123_《QQ俠》EP9 豬的失控多重宇宙</title>
-      <guid isPermaLink="false">1vaIiSRp6kK4skpvGPo74aM7PlyBLZHgW</guid>
-      <description>20250123_《QQ俠》EP9 豬的失控多重宇宙.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1vaIiSRp6kK4skpvGPo74aM7PlyBLZHgW" length="16047228" type="audio/mpeg"/>
-      <itunes:duration>16:32</itunes:duration>
-      <pubDate>Thu, 23 Jan 2025 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20250125_《QQ俠》EP10 牛魔王來襲</title>
-      <guid isPermaLink="false">1BOVpgOYGkhcrwDhaYU-TPP-_NHl8JbP4</guid>
-      <description>20250125_《QQ俠》EP10 牛魔王來襲.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1BOVpgOYGkhcrwDhaYU-TPP-_NHl8JbP4" length="12121236" type="audio/mpeg"/>
-      <itunes:duration>12:25</itunes:duration>
-      <pubDate>Sat, 25 Jan 2025 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20250127_《QQ俠》EP11 大結局</title>
-      <guid isPermaLink="false">1at2aeGvgCKmTojA4hs6J6VAwXzpuTCAY</guid>
-      <description>20250127_《QQ俠》EP11 大結局.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1at2aeGvgCKmTojA4hs6J6VAwXzpuTCAY" length="12497530" type="audio/mpeg"/>
-      <itunes:duration>12:54</itunes:duration>
-      <pubDate>Mon, 27 Jan 2025 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20250128_阿拉豬神燈 EP1~EP9 大全集 </title>
-      <guid isPermaLink="false">1Kdk2_pZimyXnq9hpuxO-J_i34zKtmwKK</guid>
-      <description>20250128_阿拉豬神燈 EP1~EP9 大全集 .mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1Kdk2_pZimyXnq9hpuxO-J_i34zKtmwKK" length="96949189" type="audio/mpeg"/>
-      <itunes:duration>01:40:13</itunes:duration>
-      <pubDate>Tue, 28 Jan 2025 12:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>20250711_《QQ俠 番外篇：迷路的小恐龍》</title>
-      <guid isPermaLink="false">1eXnxCWrWo60hm1EC3kNLmvUe-kDaDrpg</guid>
-      <description>20250711_《QQ俠 番外篇：迷路的小恐龍》.mp3</description>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1eXnxCWrWo60hm1EC3kNLmvUe-kDaDrpg" length="25612704" type="audio/mpeg"/>
-      <itunes:duration>26:22</itunes:duration>
-      <pubDate>Fri, 11 Jul 2025 12:00:00 GMT</pubDate>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" ?><rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">  <channel>    <title>GK爸爸原創故事繪本</title>    <description>GK爸爸原創故事繪本</description>    <link>https://example.com</link>    <language>zh-tw</language>    <itunes:image href="https://example.com/cover.jpg"/>    <item>      <title>20230913_《QQ偵探：鳳梨酥失竊案 下集》</title>      <guid isPermaLink="false">18bMPWGc7_NAK-yRzhXO6OtaZUsbioS6f</guid>      <description>20230913_《QQ偵探：鳳梨酥失竊案 下集》.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=18bMPWGc7_NAK-yRzhXO6OtaZUsbioS6f" length="16685436" type="audio/mpeg"/>      <itunes:duration>17:17</itunes:duration>      <pubDate>Wed, 13 Sep 2023 12:00:00 GMT</pubDate>    </item>    <item>      <title>20230912_《QQ偵探：鳳梨酥失竊案 上集》</title>      <guid isPermaLink="false">1yCLl0HMmdPHtBsdz1aTDA5ZHnKFS67iN</guid>      <description>20230912_《QQ偵探：鳳梨酥失竊案 上集》.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1yCLl0HMmdPHtBsdz1aTDA5ZHnKFS67iN" length="17076431" type="audio/mpeg"/>      <itunes:duration>17:42</itunes:duration>      <pubDate>Tue, 12 Sep 2023 12:00:00 GMT</pubDate>    </item>    <item>      <title>20230911_QQ偵探：娃娃失蹤案</title>      <guid isPermaLink="false">1o1TPtOH_b6LmM9YrQFS1Gbuejdk7XQjR</guid>      <description>20230911_QQ偵探：娃娃失蹤案.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1o1TPtOH_b6LmM9YrQFS1Gbuejdk7XQjR" length="17843806" type="audio/mpeg"/>      <itunes:duration>18:28</itunes:duration>      <pubDate>Mon, 11 Sep 2023 12:00:00 GMT</pubDate>    </item>    <item>      <title>20230910_QQ偵探：媽媽失蹤記</title>      <guid isPermaLink="false">1wAZma7U_WlLQi_lvpULCDQlsrcyAn_pD</guid>      <description>20230910_QQ偵探：媽媽失蹤記.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1wAZma7U_WlLQi_lvpULCDQlsrcyAn_pD" length="18309443" type="audio/mpeg"/>      <itunes:duration>19:03</itunes:duration>      <pubDate>Sun, 10 Sep 2023 12:00:00 GMT</pubDate>    </item>    <item>      <title>20230909_《 QQ偵探：南極之旅 》</title>      <guid isPermaLink="false">1OZFs45XK305Il5_8sz9tSJLzX-n1FEpP</guid>      <description>20230909_《 QQ偵探：南極之旅 》.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1OZFs45XK305Il5_8sz9tSJLzX-n1FEpP" length="26191577" type="audio/mpeg"/>      <itunes:duration>27:01</itunes:duration>      <pubDate>Sat, 09 Sep 2023 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250115_《QQ俠 番外篇：迷路的小恐龍》</title>      <guid isPermaLink="false">1eXnxCWrWo60hm1EC3kNLmvUe-kDaDrpg</guid>      <description>20250115_《QQ俠 番外篇：迷路的小恐龍》.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1eXnxCWrWo60hm1EC3kNLmvUe-kDaDrpg" length="25612704" type="audio/mpeg"/>      <itunes:duration>26:22</itunes:duration>      <pubDate>Wed, 15 Jan 2025 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250114_《QQ俠》EP11 大結局</title>      <guid isPermaLink="false">1at2aeGvgCKmTojA4hs6J6VAwXzpuTCAY</guid>      <description>20250114_《QQ俠》EP11 大結局.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1at2aeGvgCKmTojA4hs6J6VAwXzpuTCAY" length="12497530" type="audio/mpeg"/>      <itunes:duration>12:54</itunes:duration>      <pubDate>Tue, 14 Jan 2025 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250114_《QQ俠》EP10 牛魔王來襲</title>      <guid isPermaLink="false">1BOVpgOYGkhcrwDhaYU-TPP-_NHl8JbP4</guid>      <description>20250114_《QQ俠》EP10 牛魔王來襲.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1BOVpgOYGkhcrwDhaYU-TPP-_NHl8JbP4" length="12121236" type="audio/mpeg"/>      <itunes:duration>12:25</itunes:duration>      <pubDate>Tue, 14 Jan 2025 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250114_《QQ俠》EP9 豬的失控多重宇宙</title>      <guid isPermaLink="false">1vaIiSRp6kK4skpvGPo74aM7PlyBLZHgW</guid>      <description>20250114_《QQ俠》EP9 豬的失控多重宇宙.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1vaIiSRp6kK4skpvGPo74aM7PlyBLZHgW" length="16047228" type="audio/mpeg"/>      <itunes:duration>16:32</itunes:duration>      <pubDate>Tue, 14 Jan 2025 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250114_《QQ俠》EP8 迷你太空船</title>      <guid isPermaLink="false">1T40Jego07NHC9ldaGkywP3GSZ39vxch7</guid>      <description>20250114_《QQ俠》EP8 迷你太空船.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1T40Jego07NHC9ldaGkywP3GSZ39vxch7" length="13681744" type="audio/mpeg"/>      <itunes:duration>13:51</itunes:duration>      <pubDate>Tue, 14 Jan 2025 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250114_《QQ俠》EP7 轟轟轟</title>      <guid isPermaLink="false">1gvJL5ln2JxVg9HFZyidu9etyushwkF5Z</guid>      <description>20250114_《QQ俠》EP7 轟轟轟.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1gvJL5ln2JxVg9HFZyidu9etyushwkF5Z" length="5914531" type="audio/mpeg"/>      <itunes:duration>06:06</itunes:duration>      <pubDate>Tue, 14 Jan 2025 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250114_《QQ俠》EP1-6</title>      <guid isPermaLink="false">11uUipD-uGFLDqQ_7IFFpH-GRl42Qa80G</guid>      <description>20250114_《QQ俠》EP1-6.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=11uUipD-uGFLDqQ_7IFFpH-GRl42Qa80G" length="69084045" type="audio/mpeg"/>      <itunes:duration>01:11:21</itunes:duration>      <pubDate>Tue, 14 Jan 2025 12:00:00 GMT</pubDate>    </item>    <item>      <title>20220513_原創故事《魷魚遊戲王國》完整版</title>      <guid isPermaLink="false">1y4eGGJGEyAqyG8JXe4vFPYrMtgzP8vBH</guid>      <description>20220513_原創故事《魷魚遊戲王國》完整版.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1y4eGGJGEyAqyG8JXe4vFPYrMtgzP8vBH" length="77091629" type="audio/mpeg"/>      <itunes:duration>01:19:51</itunes:duration>      <pubDate>Fri, 13 May 2022 12:00:00 GMT</pubDate>    </item>    <item>      <title>20230908_《 QQ偵探 》導演版</title>      <guid isPermaLink="false">1CEpZe4ydqK5u87p_lqblkwc0WtlL4pcX</guid>      <description>20230908_《 QQ偵探 》導演版.mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1CEpZe4ydqK5u87p_lqblkwc0WtlL4pcX" length="51886188" type="audio/mpeg"/>      <itunes:duration>54:01</itunes:duration>      <pubDate>Fri, 08 Sep 2023 12:00:00 GMT</pubDate>    </item>    <item>      <title>20250128_阿拉豬神燈 EP1~EP9 大全集 </title>      <guid isPermaLink="false">1Kdk2_pZimyXnq9hpuxO-J_i34zKtmwKK</guid>      <description>20250128_阿拉豬神燈 EP1~EP9 大全集 .mp3</description>      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1Kdk2_pZimyXnq9hpuxO-J_i34zKtmwKK" length="96949189" type="audio/mpeg"/>      <itunes:duration>01:40:13</itunes:duration>      <pubDate>Tue, 28 Jan 2025 12:00:00 GMT</pubDate>    </item>  </channel></rss>
