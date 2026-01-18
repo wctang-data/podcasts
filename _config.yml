@@ -11,6 +11,54 @@ podcasts:
     title: 一起說故事
   - id: storytogether-qiangqiangsadventure
     title: 一起說故事：強強歷險記
+  - id: momanddadstory-dinosaurschool
+    title: 媽爹講故事-恐龍小學
+  - id: momanddadstory-dinosaurschool2
+    title: 媽爹講故事-恐龍小學2
+  - id: momanddadstory-journeytothewest
+    title: 媽爹講故事-媽爹講西遊
+  - id: momanddadstory-oz
+    title: 媽爹講故事-綠野仙蹤
+  - id: momanddadstory-aliceinwonderland
+    title: 媽爹講故事-愛麗絲夢遊仙境
+  - id: momanddadstory-peterpan
+    title: 媽爹講故事-小飛俠彼得潘
+  - id: momanddadstory-pinocchio
+    title: 媽爹講故事-木偶奇遇記
+  - id: momanddadstory-littlesun
+    title: 媽爹講故事-小兒子阿甯咕
+  - id: momanddadstory-changeworld
+    title: 媽爹講故事-那些改變世界的人
+  - id: momanddadstory-changeworld2
+    title: 媽爹講故事-那些改變世界的人-中華篇
+  - id: momanddadstory-idiomstory
+    title: 媽爹講故事-成語小故事
+  - id: momanddadstory-idiomstory2
+    title: 媽爹講故事-成語小故事2
+  - id: momanddadstory-timeandspaceadventure
+    title: 媽爹講故事-超時空冒險
+  - id: momanddadstory-flypiepie
+    title: 媽爹講故事-飛翔吧！派派
+  - id: momanddadstory-flypiepie2
+    title: 媽爹講故事-飛翔吧！派派2
+  - id: momanddadstory-flypiepie3
+    title: 媽爹講故事-飛翔吧！派派3
+  - id: momanddadstory-savehen
+    title: 媽爹講故事-飛翔吧！派派-拯救母雞大作戰
+  - id: momanddadstory-holiday
+    title: 媽爹講故事-飛翔吧！派派-派派fun暑假
+  - id: momanddadstory-haqiqi
+    title: 媽爹講故事-神探哈奇奇
+  - id: happycar-amos
+    title: 維多叔叔的故事歡樂車-艾摩斯偵探事務所
+  - id: happycar-joke
+    title: 維多叔叔的故事歡樂車-多多與多爸
+  - id: happycar-localstory
+    title: 維多叔叔的故事歡樂車-民間傳說
+  - id: happycar-original
+    title: 維多叔叔的故事歡樂車-童話原創
+  - id: molodymom-snowwolfboy
+    title: 超夢莉媽媽-雪狼男孩
   - id: happythreekingdoms
     title: 歡樂三國志
   - id: disney-readalong
@@ -45,6 +93,12 @@ podcasts:
     title: 吳淡如：五胡亂華
   - id: bettywu-shiji
     title: 吳淡如：史記
+  - id: bettywu-sudongpo
+    title: 吳淡如：行雲流水蘇東坡
+  - id: bettywu-goldenquotes
+    title: 吳淡如：重啟人生的金句
+  - id: bettywu-suntzu
+    title: 吳淡如：孫子兵法與商業策略
   - id: goodnightmoon-alittleprincess
     title: 晚安．月亮：小公主
   - id: goodnightmoon-animalfarm
@@ -75,6 +129,8 @@ podcasts:
     title: 晚安．月亮：湯姆歷險記
   - id: goodnightmoon-legendofthewhitesnake
     title: 晚安．月亮：白蛇傳
+  - id: goodnightmoon-investitureofthegods
+    title: 晚安．月亮：封神傳
   - id: goodnightmoon-storyofaesop
     title: 晚安．月亮：伊索的故事
   - id: goodnightmoon-achristmascarol
@@ -89,6 +145,8 @@ podcasts:
     title: 晚安．月亮：清秀佳人
   - id: goodnightmoon-thephantomoftheopera
     title: 晚安．月亮：歌劇魅影
+  - id: goodnightmoon-thethreemusketeers
+    title: 晚安．月亮：三劍客
   - id: goodnightmoon-heidi
     title: 晚安．月亮：海蒂
   - id: goodnightmoon-thehollowneedle
@@ -103,6 +161,8 @@ podcasts:
     title: 晚安．月亮：亞森羅蘋 - 羅蘋的大冒險
   - id: goodnightmoon-leprincedejericho
     title: 晚安．月亮：亞森羅蘋 - 魔人與海盜王
+  - id: goodnightmoon-lebouchondecristal
+    title: 晚安．月亮：亞森羅蘋 - 玻璃瓶塞的秘密
   - id: sandrastoryshow-journeytothewest
     title: 故事糖果屋：西遊記
   - id: vegatsai-arabiannights
@@ -113,3 +173,39 @@ podcasts:
     title: 午夜奇譚-V的悲劇
   - id: midnighttales-anunsettlingbirthcry
     title: 午夜奇譚-不安的產聲
+  - id: midnighttales-2pm
+    title: 午夜奇譚-午後兩點的訃文
+  - id: midnighttales-nightflight
+    title: 午夜奇譚-夜間飛行殺人事件
+  - id: midnighttales-corpsemystery
+    title: 午夜奇譚-屍謎
+  - id: midnighttales-sendai
+    title: 午夜奇譚-消失在仙台的女人
+  - id: midnighttales-loveletter
+    title: 午夜奇譚-情書
+  - id: midnighttales-murderousintent
+    title: 午夜奇譚-殺意的設計
+  - id: midnighttales-latenightcourt
+    title: 午夜奇譚-深夜的法庭
+  - id: midnighttales-terminal
+    title: 午夜奇譚-終點站
+  - id: midnighttales-mogamigawa
+    title: 午夜奇譚-最上川殺人事件
+  - id: midnighttales-cloud
+    title: 午夜奇譚-雲上的殺意
+  - id: midnighttales-blackwhite
+    title: 午夜奇譚-黑白的旅途
+  - id: midnighttales-hairstylistmurdercase
+    title: 午夜奇譚-髮型設計師殺人事件
+  - id: midnighttales-japanesemysterydrama1
+    title: 午夜奇譚-日本推理劇1
+  - id: midnighttales-japanesemysterydrama2
+    title: 午夜奇譚-日本推理劇2
+  - id: qingxue-ghostblowsoutthelight
+    title: 青雪-鬼吹灯
+  - id: aibaoliang-ghostblowsoutthelight1-2
+    title: 艾宝良-鬼吹灯1-2
+  - id: aibaoliang-ghostblowsoutthelight3-4
+    title: 艾宝良-鬼吹灯3-4
+  - id: aibaoliang-ghostblowsoutthelight5-8
+    title: 艾宝良-鬼吹灯5-8
