@@ -4,6 +4,8 @@ podcastrss:
     title: 咕咕老師：西遊記
   - id: listenastory-flowersinthemirror
     title: 咕咕老師：鏡花緣
+  - id: gk-vip
+    title: GK爸爸原創故事繪本
 podcasts:
   - id: storytogether
     title: 一起說故事
