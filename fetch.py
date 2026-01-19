@@ -24,6 +24,7 @@ from googleapiclient.http import MediaIoBaseDownload
 
 # 音訊處理庫
 from mutagen.mp3 import MP3
+from mutagen.mp4 import MP4
 
 # --- 全域設定區 (連結與圖片維持固定，或依需求修改) ---
 PODCAST_LINK = "https://example.com"  # 您的網站連結
@@ -95,7 +96,76 @@ def parse_existing_xml(xml_file):
 
     return cache
 
-def get_audio_duration(service, file_id):
+class PartialAudioFile:
+    """
+    模擬檔案物件，支援讀取開頭與結尾 (透過 Range Request)，
+    中間未下載區域回傳 0x00，解決大檔案解析時的 Truncated Data 問題。
+    """
+    def __init__(self, service, file_id, file_size, initial_data):
+        self.service = service
+        self.file_id = file_id
+        self.file_size = int(file_size)
+        self.position = 0
+        self.buffer = io.BytesIO(initial_data)
+        self.initial_len = len(initial_data)
+        self.tail_data = None
+        self.tail_start = None
+        self.tail_size = 512 * 1024  # 預設下載檔尾 512KB
+
+    def seek(self, offset, whence=0):
+        if whence == 0:
+            self.position = offset
+        elif whence == 1:
+            self.position += offset
+        elif whence == 2:
+            self.position = self.file_size + offset
+        return self.position
+
+    def tell(self):
+        return self.position
+
+    def read(self, size=-1):
+        if size == -1:
+            size = self.file_size - self.position
+        if size <= 0:
+            return b""
+
+        # 1. 讀取開頭
+        if self.position < self.initial_len:
+            self.buffer.seek(self.position)
+            data = self.buffer.read(size)
+            self.position += len(data)
+            if len(data) < size:
+                data += self.read(size - len(data))
+            return data
+
+        # 2. 讀取結尾
+        tail_trigger = max(self.initial_len, self.file_size - self.tail_size)
+        if self.position >= tail_trigger:
+            if self.tail_data is None:
+                try:
+                    req = self.service.files().get_media(fileId=self.file_id)
+                    req.headers['Range'] = f'bytes={tail_trigger}-{self.file_size-1}'
+                    self.tail_data = req.execute()
+                    self.tail_start = tail_trigger
+                except Exception:
+                    self.tail_data = b''
+                    self.tail_start = self.file_size
+
+            offset = self.position - self.tail_start
+            chunk = self.tail_data[offset : offset + size]
+            self.position += len(chunk)
+            return chunk
+
+        # 3. 中間補零
+        to_read = min(size, tail_trigger - self.position)
+        self.position += to_read
+        data = b'\x00' * to_read
+        if len(data) < size:
+            data += self.read(size - len(data))
+        return data
+
+def get_audio_duration(service, file_id, mime_type='audio/mpeg', file_size=0):
     """
     下載檔案前 128KB 來解析 MP3 Header 獲取時長。
     回傳格式: MM:SS (若超過一小時則是 HH:MM:SS)
@@ -108,8 +178,23 @@ def get_audio_duration(service, file_id):
         # 僅下載開頭部分
         downloader.next_chunk()
 
-        file_io.seek(0)
-        audio = MP3(file_io)
+        # 判斷是否需要 PartialAudioFile (針對大檔案)
+        downloaded_data = file_io.getvalue()
+        if file_size > 0 and len(downloaded_data) < file_size:
+            stream = PartialAudioFile(service, file_id, file_size, downloaded_data)
+        else:
+            file_io.seek(0)
+            stream = file_io
+
+        # 檢查 Magic Number 增強判斷 (有些 m4a 會被誤判為 audio/mpeg)
+        header = stream.read(8)
+        stream.seek(0)
+        is_mp4 = (len(header) >= 8 and header[4:8] == b'ftyp')
+
+        if is_mp4 or 'mp4' in mime_type or 'm4a' in mime_type:
+            audio = MP4(stream)
+        else:
+            audio = MP3(stream)
         length_sec = int(audio.info.length)
 
         hours, remainder = divmod(length_sec, 3600)
@@ -193,7 +278,7 @@ def generate_xml(file_data_list, podcast_title, podcast_desc, output_filename):
         SubElement(item, 'enclosure', {
             'url': dl_link,
             'length': str(file['size']),
-            'type': 'audio/mpeg'
+            'type': file.get('mimeType', 'audio/mpeg')
         })
 
         # iTunes 時長
@@ -210,22 +295,23 @@ def generate_xml(file_data_list, podcast_title, podcast_desc, output_filename):
 
     print(f"成功！XML 已儲存為: {output_filename}")
 
-def process_folder(service, folder_id, xml_filename):
+def process_folder(service, folder_id):
     """處理單一資料夾的邏輯"""
-    print(f"\n--- 開始處理資料夾 ID: {folder_id} -> {xml_filename} ---")
+    print(f"\n--- 開始處理資料夾 ID: {folder_id} ---")
 
     folder_name = get_folder_metadata(service, folder_id)
     print(f"Podcast 名稱: {folder_name}")
+    xml_filename = f"{folder_id}.xml"
 
     # 1. 先讀取舊的 XML 建立快取 (針對目前的 xml_filename)
     duration_cache = parse_existing_xml(xml_filename)
 
     print("正在掃描音訊檔案...")
     # 加入 createdTime 欄位以供日期排序與解析使用
-    query = f"'{folder_id}' in parents and mimeType = 'audio/mpeg' and trashed = false"
+    query = f"'{folder_id}' in parents and (mimeType = 'audio/mpeg' or mimeType = 'audio/mp4') and trashed = false"
     results = service.files().list(
         q=query,
-        fields="files(id, name, size, createdTime)",
+        fields="files(id, name, size, createdTime, mimeType)",
         pageSize=100
     ).execute()
 
@@ -239,6 +325,7 @@ def process_folder(service, folder_id, xml_filename):
     for f in files:
         f_id = f['id']
         f_name = f['name']
+        mime_type = f.get('mimeType', 'audio/mpeg')
         print(f"處理中: {f_name}...")
 
         # 2. 檢查是否有快取
@@ -247,7 +334,7 @@ def process_folder(service, folder_id, xml_filename):
             duration = duration_cache[f_id]
         else:
             print(f"  -> 新檔案，下載解析時長...")
-            duration = get_audio_duration(service, f_id)
+            duration = get_audio_duration(service, f_id, mime_type, int(f.get('size', 0)))
 
         # 3. 重新計算 Meta
         title_clean = os.path.splitext(f_name)[0]
@@ -257,6 +344,7 @@ def process_folder(service, folder_id, xml_filename):
             'id': f_id,
             'name': f_name,
             'title_clean': title_clean,
+            'mimeType': mime_type,
             'size': f.get('size', 0),
             'duration': duration,
             'pubDate': pub_date
@@ -279,17 +367,13 @@ def main():
         reader = csv.reader(f)
         count = 0
         for row in reader:
-            if len(row) < 2:
-                continue
-
             # 去除空白
             folder_id = row[0].strip()
-            xml_filename = row[1].strip()
 
-            if not folder_id or not xml_filename:
+            if not folder_id:
                 continue
 
-            process_folder(service, folder_id, xml_filename)
+            process_folder(service, folder_id)
             count += 1
 
     if count == 0:
