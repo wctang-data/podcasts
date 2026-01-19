@@ -326,6 +326,11 @@ def process_folder(service, folder_id):
         f_id = f['id']
         f_name = f['name']
         mime_type = f.get('mimeType', 'audio/mpeg')
+
+        # 若副檔名為 m4a，強制將 MIME type 設定為 audio/x-m4a
+        if f_name.lower().endswith('.m4a'):
+            mime_type = 'audio/x-m4a'
+
         print(f"處理中: {f_name}...")
 
         # 2. 檢查是否有快取
