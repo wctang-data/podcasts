@@ -10,8 +10,6 @@ podcastrss:
     title: 聽說有故事
   - id: 1MmFBxKcsXh-94uhyORn5KGStNGrQjR8G
     title: 晚安．月亮-鐵假面具
-  - id: 1NFnFWemQa9oMbiKLuSJWYQpFnlxTveaf
-    title: 吳淡如-歷史解謎
   - id: 1SGbitzrtMRuRbKb_3yzIOgedDv-xAKEr
     title: 從前從前-神探邁克狐
   - id: 1KjiRBPYZqBVYGPkmsciv3MJDZXYg_BXt
@@ -110,6 +108,8 @@ podcasts:
     title: 吳淡如：重啟人生的金句
   - id: bettywu-suntzu
     title: 吳淡如：孫子兵法與商業策略
+  - id: bettywu-historicalmystery
+    title: 吳淡如-歷史解謎
   - id: goodnightmoon-alittleprincess
     title: 晚安．月亮：小公主
   - id: goodnightmoon-animalfarm
