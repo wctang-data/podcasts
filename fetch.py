@@ -8,7 +8,6 @@
 
 import io
 import os
-import csv
 import datetime
 from email.utils import formatdate
 # 新增 parse 用於讀取舊檔
@@ -362,27 +361,32 @@ def main():
     creds = get_credentials()
     service = build('drive', 'v3', credentials=creds)
 
-    csv_file = 'drive.csv'
-    if not os.path.exists(csv_file):
-        print(f"錯誤: 找不到設定檔 '{csv_file}'。請建立該檔案，格式為每行: FOLDER_ID, XML_FILENAME")
+    # 1. 尋找名為 "podcasts" 的資料夾
+    print("正在搜尋 'podcasts' 資料夾...")
+    query = "mimeType = 'application/vnd.google-apps.folder' and name = 'podcasts' and trashed = false"
+    results = service.files().list(
+        q=query,
+        fields="files(id, name)",
+        pageSize=1
+    ).execute()
+
+    files = results.get('files', [])
+    if not files:
+        print("錯誤: 在 Google Drive 中找不到名為 'podcasts' 的資料夾。")
         return
 
-    # 讀取 CSV 並迴圈處理
-    with open(csv_file, 'r', encoding='utf-8') as f:
-        reader = csv.reader(f)
-        count = 0
-        for row in reader:
-            # 去除空白
-            folder_id = row[0].strip()
+    podcasts_root_id = files[0]['id']
+    print(f"找到 'podcasts' 資料夾 ID: {podcasts_root_id}，正在讀取子資料夾列表...")
 
-            if not folder_id:
-                continue
+    # 2. 取得該資料夾下的所有子資料夾 (每個子資料夾代表一個 Podcast)
+    query_sub = f"'{podcasts_root_id}' in parents and mimeType = 'application/vnd.google-apps.folder' and trashed = false"
+    results_sub = service.files().list(q=query_sub, fields="files(id, name)", pageSize=100).execute()
+    podcast_folders = results_sub.get('files', [])
 
-            process_folder(service, folder_id)
-            count += 1
+    print(f"共發現 {len(podcast_folders)} 個 Podcast 節目資料夾。")
 
-    if count == 0:
-        print("未執行任何任務，請檢查 drive.csv 內容是否正確。")
+    for folder in podcast_folders:
+        process_folder(service, folder['id'])
 
 if __name__ == '__main__':
     main()
