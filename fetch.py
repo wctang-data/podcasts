@@ -329,7 +329,7 @@ def process_folder(service, folder_id):
 
         # 若副檔名為 m4a，強制將 MIME type 設定為 audio/x-m4a
         if f_name.lower().endswith('.m4a'):
-            mime_type = 'audio/x-m4a'
+            mime_type = 'audio/mp4'
 
         print(f"處理中: {f_name}...")
 
