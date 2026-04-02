@@ -110,42 +110,6 @@ podcasts:
     title: Disney Storyette
   - id: disney-storyteller
     title: Disney Storyteller
-  - id: bettywu-investitureofthegods
-    title: 吳淡如：封神榜
-  - id: bettywu-journeytothewest
-    title: 吳淡如：西遊記
-  - id: bettywu-littleprince
-    title: 吳淡如：小王子
-  - id: bettywu-flowersinthemirror
-    title: 吳淡如：鏡花緣
-  - id: bettywu-watermargin
-    title: 吳淡如：水滸傳
-  - id: bettywu-dreamoftheredchamber
-    title: 吳淡如：紅樓夢
-  - id: bettywu-shakespeare
-    title: 吳淡如：莎士比亞
-  - id: bettywu-romanceofthethreekingdoms
-    title: 吳淡如：三國演義
-  - id: bettywu-jinpingmei
-    title: 吳淡如：金瓶梅
-  - id: bettywu-liaozhai
-    title: 吳淡如：緣定逃不了，新浪漫聊齋
-  - id: bettywu-theoutlineofchinesehistory
-    title: 吳淡如：中國史綱
-  - id: bettywu-fivebarbarians
-    title: 吳淡如：五胡亂華
-  - id: bettywu-shiji
-    title: 吳淡如：史記
-  - id: bettywu-sudongpo
-    title: 吳淡如：行雲流水蘇東坡
-  - id: bettywu-goldenquotes
-    title: 吳淡如：重啟人生的金句
-  - id: bettywu-suntzu
-    title: 吳淡如：孫子兵法與商業策略
-  - id: bettywu-historicalmystery
-    title: 吳淡如-歷史解謎
-  - id: bettywu-historicalluminaries
-    title: 吳淡如-歷史發光人物
   - id: goodnightmoon-theironmask
     title: 晚安．月亮-鐵假面具
   - id: goodnightmoon-alittleprincess
@@ -214,6 +178,34 @@ podcasts:
     title: 晚安．月亮：亞森羅蘋 - 玻璃瓶塞的秘密
   - id: sandrastoryshow-journeytothewest
     title: 故事糖果屋：西遊記
+  - id: bettywu-investitureofthegods
+    title: 吳淡如：封神榜
+  - id: bettywu-journeytothewest
+    title: 吳淡如：西遊記
+  - id: bettywu-littleprince
+    title: 吳淡如：小王子
+  - id: bettywu-flowersinthemirror
+    title: 吳淡如：鏡花緣
+  - id: bettywu-watermargin
+    title: 吳淡如：水滸傳
+  - id: bettywu-dreamoftheredchamber
+    title: 吳淡如：紅樓夢
+  - id: bettywu-shakespeare
+    title: 吳淡如：莎士比亞
+  - id: bettywu-romanceofthethreekingdoms
+    title: 吳淡如：三國演義
+  - id: bettywu-jinpingmei
+    title: 吳淡如：金瓶梅
+  - id: bettywu-liaozhai
+    title: 吳淡如：緣定逃不了，新浪漫聊齋
+  - id: bettywu-theoutlineofchinesehistory
+    title: 吳淡如：中國史綱
+  - id: bettywu-fivebarbarians
+    title: 吳淡如：五胡亂華
+  - id: bettywu-shiji
+    title: 吳淡如：史記
+  - id: bettywu-sudongpo
+    title: 吳淡如：行雲流水蘇東坡
   - id: vegatsai-arabiannights
     title: 蔡燦得：天方夜譚
   - id: vegatsai-nobodysgirl
