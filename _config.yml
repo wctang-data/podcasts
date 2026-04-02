@@ -8,8 +8,6 @@ podcastrss:
     title: GK爸爸原創故事繪本
 
 podcasts:
-  - id: xiangshengwashe-qinshimingyue
-    title: 相聲瓦舍-秦時明月
   - id: storytogether
     title: 一起說故事
   - id: storytogether-qiangqiangsadventure
