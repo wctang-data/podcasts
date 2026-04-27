@@ -250,9 +250,11 @@ def generate_xml(file_data_list, podcast_title, podcast_desc, pocast_link, podca
     SubElement(channel, 'description').text = podcast_desc
     SubElement(channel, 'link').text = pocast_link
     SubElement(channel, 'language').text = "zh-tw"
-
     # 頻道封面
     SubElement(channel, 'itunes:image', {'href': podcast_image})
+    # add lastBuildDate
+    SubElement(channel, 'lastBuildDate').text = formatdate(usegmt=True)
+
 
     print(f"正在生成 XML，共 {len(file_data_list)} 個項目...")
 
