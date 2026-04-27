@@ -235,7 +235,7 @@ def parse_podcast_date(filename, created_time_str):
         print(f"日期解析錯誤 ({filename}): {e}，使用當前時間。")
         return formatdate(usegmt=True)
 
-def generate_xml(file_data_list, podcast_title, podcast_desc, podcast_image, pocast_link, output_filename):
+def generate_xml(file_data_list, podcast_title, podcast_desc, pocast_link, podcast_image, output_filename):
     """生成符合 iTunes 標準的 RSS XML"""
 
     # 定義 Namespace
