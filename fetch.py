@@ -25,10 +25,6 @@ from googleapiclient.http import MediaIoBaseDownload
 from mutagen.mp3 import MP3
 from mutagen.mp4 import MP4
 
-# --- 全域設定區 (連結與圖片維持固定，或依需求修改) ---
-PODCAST_LINK = "https://example.com"  # 您的網站連結
-PODCAST_IMAGE = "https://example.com/cover.jpg" # 封面圖片連結 (建議 1400x1400)
-
 # 權限範圍
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
 
@@ -42,7 +38,7 @@ def get_credentials():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file('client_secrets.json', SCOPES)
             creds = flow.run_local_server(port=0)
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
@@ -239,7 +235,7 @@ def parse_podcast_date(filename, created_time_str):
         print(f"日期解析錯誤 ({filename}): {e}，使用當前時間。")
         return formatdate(usegmt=True)
 
-def generate_xml(file_data_list, podcast_title, podcast_desc, output_filename):
+def generate_xml(file_data_list, podcast_title, podcast_desc, podcast_image, pocast_link, output_filename):
     """生成符合 iTunes 標準的 RSS XML"""
 
     # 定義 Namespace
@@ -252,11 +248,11 @@ def generate_xml(file_data_list, podcast_title, podcast_desc, output_filename):
     channel = SubElement(rss, 'channel')
     SubElement(channel, 'title').text = podcast_title
     SubElement(channel, 'description').text = podcast_desc
-    SubElement(channel, 'link').text = PODCAST_LINK
+    SubElement(channel, 'link').text = pocast_link
     SubElement(channel, 'language').text = "zh-tw"
 
     # 頻道封面
-    SubElement(channel, 'itunes:image', {'href': PODCAST_IMAGE})
+    SubElement(channel, 'itunes:image', {'href': podcast_image})
 
     print(f"正在生成 XML，共 {len(file_data_list)} 個項目...")
 
@@ -300,7 +296,10 @@ def process_folder(service, folder_id):
 
     folder_name = get_folder_metadata(service, folder_id)
     print(f"Podcast 名稱: {folder_name}")
-    xml_filename = f"{folder_id}.xml"
+    xml_filename = f"rss/{folder_id}.xml"
+    podcast_link = f"https://drive.google.com/drive/folders/{folder_id}"
+    podcast_image = "cover.jpg" # 封面圖片連結 (建議 1400x1400)
+
 
     # 1. 先讀取舊的 XML 建立快取 (針對目前的 xml_filename)
     duration_cache = parse_existing_xml(xml_filename)
@@ -319,6 +318,9 @@ def process_folder(service, folder_id):
     if not files:
         print(f"在資料夾 {folder_name} 中沒有找到 MP3 檔案。")
         return
+
+    # sort by filename
+    files.sort(key=lambda x: x['name'], reverse=True)
 
     processed_files = []
     for f in files:
@@ -355,7 +357,7 @@ def process_folder(service, folder_id):
         })
 
     # 傳入目前的 xml_filename
-    generate_xml(processed_files, folder_name, folder_name, xml_filename)
+    generate_xml(processed_files, folder_name, folder_name, podcast_link, podcast_image, xml_filename)
 
 def main():
     creds = get_credentials()
