@@ -91,6 +91,40 @@ def parse_existing_xml(xml_file):
 
     return cache
 
+def find_cover_image_url(service, folder_id):
+    """尋找資料夾中檔名為 cover 的圖片，回傳可下載 URL。"""
+    try:
+        query = f"'{folder_id}' in parents and mimeType contains 'image/' and name contains 'cover' and trashed = false"
+        results = service.files().list(
+            q=query,
+            fields="files(id, name, mimeType)",
+            pageSize=20
+        ).execute()
+    except Exception as e:
+        print(f"  [警告] 無法搜尋封面圖片: {e}")
+        return None
+
+    cover_files = [
+        file for file in results.get('files', [])
+        if os.path.splitext(file.get('name', ''))[0].lower() == 'cover'
+    ]
+
+    if not cover_files:
+        return None
+
+    extension_priority = {
+        '.jpg': 0,
+        '.jpeg': 1,
+        '.png': 2,
+        '.webp': 3,
+    }
+    cover_files.sort(
+        key=lambda file: extension_priority.get(os.path.splitext(file.get('name', ''))[1].lower(), 99)
+    )
+    cover_file = cover_files[0]
+    print(f"使用資料夾封面圖片: {cover_file['name']}")
+    return f"https://drive.google.com/uc?export=download&id={cover_file['id']}"
+
 class PartialAudioFile:
     """
     模擬檔案物件，支援讀取開頭與結尾 (透過 Range Request)，
@@ -301,6 +335,9 @@ def process_folder(service, folder_id):
     xml_filename = f"rss/{folder_id}.xml"
     podcast_link = f"https://drive.google.com/drive/folders/{folder_id}"
     podcast_image = "cover.jpg" # 封面圖片連結 (建議 1400x1400)
+    folder_cover_image = find_cover_image_url(service, folder_id)
+    if folder_cover_image:
+        podcast_image = folder_cover_image
 
 
     # 1. 先讀取舊的 XML 建立快取 (針對目前的 xml_filename)
