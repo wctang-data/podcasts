@@ -342,6 +342,7 @@ def process_folder(service, folder_id):
 
     # 1. 先讀取舊的 XML 建立快取 (針對目前的 xml_filename)
     duration_cache = parse_existing_xml(xml_filename)
+    cached_file_ids = set(duration_cache)
 
     print("正在掃描音訊檔案...")
     # 加入 createdTime 欄位以供日期排序與解析使用
@@ -362,6 +363,7 @@ def process_folder(service, folder_id):
     files.sort(key=lambda x: x['name'], reverse=True)
 
     processed_files = []
+    all_files_from_cache = True
     for f in files:
         f_id = f['id']
         f_name = f['name']
@@ -378,6 +380,7 @@ def process_folder(service, folder_id):
             print(f"  -> 命中快取，使用紀錄中的時長。")
             duration = duration_cache[f_id]
         else:
+            all_files_from_cache = False
             print(f"  -> 新檔案，下載解析時長...")
             duration = get_audio_duration(service, f_id, mime_type, int(f.get('size', 0)))
 
@@ -394,6 +397,11 @@ def process_folder(service, folder_id):
             'duration': duration,
             'pubDate': pub_date
         })
+
+    current_file_ids = {file['id'] for file in processed_files}
+    if all_files_from_cache and current_file_ids == cached_file_ids:
+        print(f"所有檔案皆由快取讀取，且沒有新增或刪除檔案，略過 XML 生成: {xml_filename}")
+        return
 
     # 傳入目前的 xml_filename
     generate_xml(processed_files, folder_name, folder_name, podcast_link, podcast_image, xml_filename)
