@@ -57,7 +57,7 @@ def get_folder_metadata(service, folder_id):
 
 def parse_existing_xml(xml_file):
     """
-    讀取現有的 XML 檔案，回傳 {guid: {'duration': duration, 'pubDate': pubDate}} 的字典。
+    讀取現有的 XML 檔案，回傳 {guid: {'duration': duration, 'pubDate': pubDate, 'title': title, 'description': description}} 的字典。
     目的：避免重複下載分析已存在的音訊檔案。
     """
     cache = {}
@@ -81,11 +81,15 @@ def parse_existing_xml(xml_file):
                 # 嘗試讀取 itunes:duration
                 dur_tag = item.find("itunes:duration", namespaces)
                 pub_date_tag = item.find("pubDate")
+                title_tag = item.find("title")
+                desc_tag = item.find("description")
 
                 if guid and dur_tag is not None:
                     cache[guid] = {
                         'duration': dur_tag.text,
-                        'pubDate': pub_date_tag.text if pub_date_tag is not None else None
+                        'pubDate': pub_date_tag.text if pub_date_tag is not None else None,
+                        'title': title_tag.text if title_tag is not None else None,
+                        'description': desc_tag.text if desc_tag is not None else None
                     }
             except Exception:
                 continue
@@ -370,6 +374,7 @@ def process_folder(service, folder_id):
     processed_files = []
     all_files_from_cache = True
     all_pub_dates_from_cache = True
+    all_filenames_from_cache = True
     for f in files:
         f_id = f['id']
         f_name = f['name']
@@ -393,8 +398,12 @@ def process_folder(service, folder_id):
         # 3. 重新計算 Meta
         title_clean = os.path.splitext(f_name)[0]
         pub_date = parse_podcast_date(f_name, f.get('createdTime', ''))
-        if f_id in duration_cache and duration_cache[f_id].get('pubDate') != pub_date:
-            all_pub_dates_from_cache = False
+        if f_id in duration_cache:
+            cached_file = duration_cache[f_id]
+            if cached_file.get('pubDate') != pub_date:
+                all_pub_dates_from_cache = False
+            if cached_file.get('title') != title_clean or cached_file.get('description') != f_name:
+                all_filenames_from_cache = False
 
         processed_files.append({
             'id': f_id,
@@ -407,8 +416,8 @@ def process_folder(service, folder_id):
         })
 
     current_file_ids = {file['id'] for file in processed_files}
-    if all_files_from_cache and all_pub_dates_from_cache and current_file_ids == cached_file_ids:
-        print(f"所有檔案皆由快取讀取，pubDate 未變，且沒有新增或刪除檔案，略過 XML 生成: {xml_filename}")
+    if all_files_from_cache and all_pub_dates_from_cache and all_filenames_from_cache and current_file_ids == cached_file_ids:
+        print(f"所有檔案皆由快取讀取，檔名與 pubDate 未變，且沒有新增或刪除檔案，略過 XML 生成: {xml_filename}")
         return
 
     # 傳入目前的 xml_filename
