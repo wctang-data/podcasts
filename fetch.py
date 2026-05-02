@@ -8,6 +8,7 @@
 
 import io
 import os
+import re
 import datetime
 from email.utils import formatdate
 # 新增 parse 用於讀取舊檔
@@ -56,7 +57,7 @@ def get_folder_metadata(service, folder_id):
 
 def parse_existing_xml(xml_file):
     """
-    讀取現有的 XML 檔案，回傳 {guid: duration} 的字典。
+    讀取現有的 XML 檔案，回傳 {guid: {'duration': duration, 'pubDate': pubDate}} 的字典。
     目的：避免重複下載分析已存在的音訊檔案。
     """
     cache = {}
@@ -79,9 +80,13 @@ def parse_existing_xml(xml_file):
                 guid = item.find("guid").text
                 # 嘗試讀取 itunes:duration
                 dur_tag = item.find("itunes:duration", namespaces)
+                pub_date_tag = item.find("pubDate")
 
                 if guid and dur_tag is not None:
-                    cache[guid] = dur_tag.text
+                    cache[guid] = {
+                        'duration': dur_tag.text,
+                        'pubDate': pub_date_tag.text if pub_date_tag is not None else None
+                    }
             except Exception:
                 continue
 
@@ -240,14 +245,14 @@ def get_audio_duration(service, file_id, mime_type='audio/mpeg', file_size=0):
 def parse_podcast_date(filename, created_time_str):
     """
     解析發布日期 (pubDate)：
-    1. 優先規則：檢查檔名是否為 'YYYYMMDD_' 開頭 (例如 20250128_節目.mp3)
+    1. 優先規則：檢查檔名是否包含 'YYYYMMDD' 日期 (例如 20250128_節目.mp3 或 節目_20250128.mp3)
     2. 次要規則：使用檔案的建立時間 (createdTime)
     回傳：RFC 822 格式的時間字串
     """
-    # 嘗試從檔名解析: 20250128_
-    if len(filename) >= 9 and filename[8] == '_':
+    # 嘗試從檔名任意位置解析 YYYYMMDD，避免匹配到更長數字的一部分。
+    for match in re.finditer(r"(?<!\d)(\d{8})(?!\d)", filename):
         try:
-            date_part = filename[:8]  # 取前8碼
+            date_part = match.group(1)
             # 解析 YYYYMMDD
             dt = datetime.datetime.strptime(date_part, "%Y%m%d")
             # 設定預設時間為中午 12:00 UTC，避免時區問題導致日期跳動
@@ -364,6 +369,7 @@ def process_folder(service, folder_id):
 
     processed_files = []
     all_files_from_cache = True
+    all_pub_dates_from_cache = True
     for f in files:
         f_id = f['id']
         f_name = f['name']
@@ -378,7 +384,7 @@ def process_folder(service, folder_id):
         # 2. 檢查是否有快取
         if f_id in duration_cache:
             print(f"  -> 命中快取，使用紀錄中的時長。")
-            duration = duration_cache[f_id]
+            duration = duration_cache[f_id]['duration']
         else:
             all_files_from_cache = False
             print(f"  -> 新檔案，下載解析時長...")
@@ -387,6 +393,8 @@ def process_folder(service, folder_id):
         # 3. 重新計算 Meta
         title_clean = os.path.splitext(f_name)[0]
         pub_date = parse_podcast_date(f_name, f.get('createdTime', ''))
+        if f_id in duration_cache and duration_cache[f_id].get('pubDate') != pub_date:
+            all_pub_dates_from_cache = False
 
         processed_files.append({
             'id': f_id,
@@ -399,8 +407,8 @@ def process_folder(service, folder_id):
         })
 
     current_file_ids = {file['id'] for file in processed_files}
-    if all_files_from_cache and current_file_ids == cached_file_ids:
-        print(f"所有檔案皆由快取讀取，且沒有新增或刪除檔案，略過 XML 生成: {xml_filename}")
+    if all_files_from_cache and all_pub_dates_from_cache and current_file_ids == cached_file_ids:
+        print(f"所有檔案皆由快取讀取，pubDate 未變，且沒有新增或刪除檔案，略過 XML 生成: {xml_filename}")
         return
 
     # 傳入目前的 xml_filename
